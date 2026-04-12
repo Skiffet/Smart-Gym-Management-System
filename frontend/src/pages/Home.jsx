@@ -30,11 +30,11 @@ const Home = () => {
             <span className="landing-title-line">GYM</span>
           </h1>
           <p className="home-panel-desc">
-            จัดการสมาชิก คลาส และการจองในที่เดียว พร้อมบันทึกผลการฝึก
+            Manage members, classes, and bookings in one place — with full training record tracking.
           </p>
           <div className="landing-cta">
-            <Link to="/register" className="btn btn-primary">เริ่มต้นใช้งาน</Link>
-            <Link to="/login" className="btn btn-outline home-panel-btn-outline">เข้าสู่ระบบ</Link>
+            <Link to="/register" className="btn btn-primary">Get Started</Link>
+            <Link to="/login" className="btn btn-outline home-panel-btn-outline">Sign In</Link>
           </div>
         </div>
       </div>
