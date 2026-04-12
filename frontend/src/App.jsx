@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -18,16 +18,25 @@ import AvailableClasses from './pages/member/AvailableClasses';
 import MyBookings from './pages/member/MyBookings';
 import TrainingHistory from './pages/member/TrainingHistory';
 
+const PUBLIC_FULLSCREEN = ['/', '/login', '/register'];
+
 const AppLayout = () => {
   const { user } = useAuth();
+  const { pathname } = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const hideTopBar = !user && PUBLIC_FULLSCREEN.includes(pathname);
 
   return (
     <div className="app">
-      <Navbar onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-      <div className="app-body">
+      {!hideTopBar && <Navbar onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />}
+      <div className={`app-body${hideTopBar ? ' app-body--no-navbar' : ''}`}>
         {user && <Sidebar isOpen={sidebarOpen} />}
-        <main className={`main-content ${user && sidebarOpen ? 'with-sidebar' : ''}`}>
+        <main
+          className={`main-content${user && sidebarOpen ? ' with-sidebar' : ''}${
+            hideTopBar ? ' main-content--fullscreen' : ''
+          }`}
+        >
           <Routes>
             <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Home />} />
             <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
@@ -35,15 +44,12 @@ const AppLayout = () => {
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
 
-            {/* Admin Routes */}
             <Route path="/admin/users" element={<ProtectedRoute roles={['admin']}><ManageUsers /></ProtectedRoute>} />
             <Route path="/admin/classes" element={<ProtectedRoute roles={['admin']}><ManageClasses /></ProtectedRoute>} />
 
-            {/* Trainer Routes */}
             <Route path="/trainer/classes" element={<ProtectedRoute roles={['trainer']}><MyClasses /></ProtectedRoute>} />
             <Route path="/trainer/records" element={<ProtectedRoute roles={['trainer']}><TrainingRecords /></ProtectedRoute>} />
 
-            {/* Member Routes */}
             <Route path="/member/classes" element={<ProtectedRoute roles={['member']}><AvailableClasses /></ProtectedRoute>} />
             <Route path="/member/bookings" element={<ProtectedRoute roles={['member']}><MyBookings /></ProtectedRoute>} />
             <Route path="/member/history" element={<ProtectedRoute roles={['member']}><TrainingHistory /></ProtectedRoute>} />

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
-import { GiWeightLiftingUp } from 'react-icons/gi';
 import { FiMail, FiLock } from 'react-icons/fi';
 import AuthSplitLayout from '../components/AuthSplitLayout';
 
@@ -29,9 +28,8 @@ const Login = () => {
 
   return (
     <AuthSplitLayout>
-      <div className="auth-card auth-card--split">
-        <div className="auth-header">
-          <GiWeightLiftingUp className="auth-icon" />
+      <div className="auth-form auth-form--dark">
+        <div className="auth-header auth-header--compact">
           <h1>Welcome Back</h1>
           <p>Sign in to Smart Gym</p>
         </div>

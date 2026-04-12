@@ -1,8 +1,8 @@
 const TILES = [
-  { src: '/image/aquatic.png', label: 'Aquatic', zoom: 'aquatic' },
-  { src: '/image/cardio.png', label: 'Cardio', zoom: 'default' },
-  { src: '/image/climbing.png', label: 'Climbing', zoom: 'default' },
-  { src: '/image/strength.png', label: 'Strength', zoom: 'strength' },
+  { src: '/image/aquatic.png', label: 'Aquatic Recovery', zoom: 'aquatic' },
+  { src: '/image/cardio.png', label: 'Cardio Zone', zoom: 'default' },
+  { src: '/image/climbing.png', label: 'Climbing Wall', zoom: 'default' },
+  { src: '/image/strength.png', label: 'Strength & Power', zoom: 'strength' },
 ];
 
 const imgClass = (zoom) => {
@@ -12,12 +12,13 @@ const imgClass = (zoom) => {
 };
 
 const ActivityGrid = ({ className = '' }) => (
-  <div className={`activity-grid ${className}`.trim()}>
+  <div className={`activity-grid activity-grid--row ${className}`.trim()}>
     {TILES.map((tile) => (
-      <figure key={tile.label} className="activity-tile">
-        <img src={tile.src} alt={tile.label} loading="lazy" className={imgClass(tile.zoom)} />
-        <figcaption>{tile.label}</figcaption>
-      </figure>
+      <div key={tile.label} className="activity-tile">
+        <div className="activity-tile__media">
+          <img src={tile.src} alt={tile.label} loading="lazy" className={imgClass(tile.zoom)} />
+        </div>
+      </div>
     ))}
   </div>
 );
