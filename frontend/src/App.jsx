@@ -5,6 +5,7 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
@@ -28,6 +29,7 @@ const AppLayout = () => {
         {user && <Sidebar isOpen={sidebarOpen} />}
         <main className={`main-content ${user && sidebarOpen ? 'with-sidebar' : ''}`}>
           <Routes>
+            <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Home />} />
             <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
             <Route path="/register" element={user ? <Navigate to="/dashboard" /> : <Register />} />
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
@@ -46,7 +48,7 @@ const AppLayout = () => {
             <Route path="/member/bookings" element={<ProtectedRoute roles={['member']}><MyBookings /></ProtectedRoute>} />
             <Route path="/member/history" element={<ProtectedRoute roles={['member']}><TrainingHistory /></ProtectedRoute>} />
 
-            <Route path="*" element={<Navigate to={user ? '/dashboard' : '/login'} />} />
+            <Route path="*" element={<Navigate to={user ? '/dashboard' : '/'} />} />
           </Routes>
         </main>
       </div>

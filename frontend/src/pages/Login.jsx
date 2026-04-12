@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
 import { GiWeightLiftingUp } from 'react-icons/gi';
 import { FiMail, FiLock } from 'react-icons/fi';
+import AuthSplitLayout from '../components/AuthSplitLayout';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -27,8 +28,8 @@ const Login = () => {
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
+    <AuthSplitLayout>
+      <div className="auth-card auth-card--split">
         <div className="auth-header">
           <GiWeightLiftingUp className="auth-icon" />
           <h1>Welcome Back</h1>
@@ -63,7 +64,7 @@ const Login = () => {
           Don't have an account? <Link to="/register">Register here</Link>
         </p>
       </div>
-    </div>
+    </AuthSplitLayout>
   );
 };
 

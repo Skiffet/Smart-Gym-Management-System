@@ -9,7 +9,7 @@ const Navbar = ({ onToggleSidebar }) => {
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate('/');
   };
 
   return (

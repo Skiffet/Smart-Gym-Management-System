@@ -215,7 +215,6 @@ const TrainingRecords = () => {
                     <input placeholder="Sets" type="number" value={ex.sets} onChange={(e) => handleExerciseChange(i, 'sets', e.target.value)} className="input-sm" />
                     <input placeholder="Reps" type="number" value={ex.reps} onChange={(e) => handleExerciseChange(i, 'reps', e.target.value)} className="input-sm" />
                     <input placeholder="Weight(kg)" type="number" value={ex.weight} onChange={(e) => handleExerciseChange(i, 'weight', e.target.value)} className="input-sm" />
-                    <input placeholder="Dur(min)" type="number" value={ex.duration} onChange={(e) => handleExerciseChange(i, 'duration', e.target.value)} className="input-sm" />
                     <button type="button" className="btn-icon btn-delete" onClick={() => removeExercise(i)}>
                       <FiX />
                     </button>

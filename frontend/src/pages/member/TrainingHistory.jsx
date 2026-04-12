@@ -69,7 +69,6 @@ const TrainingHistory = () => {
                             <th>Sets</th>
                             <th>Reps</th>
                             <th>Weight (kg)</th>
-                            <th>Duration (min)</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -79,7 +78,6 @@ const TrainingHistory = () => {
                               <td>{ex.sets || '-'}</td>
                               <td>{ex.reps || '-'}</td>
                               <td>{ex.weight || '-'}</td>
-                              <td>{ex.duration || '-'}</td>
                             </tr>
                           ))}
                         </tbody>
