@@ -129,6 +129,32 @@ npm run dev
 - `PUT /api/training-records/:id` - Update record (Trainer)
 - `DELETE /api/training-records/:id` - Delete record
 
+## Screenshots
+
+### Public Pages
+
+| Home | Login | Register |
+|------|-------|----------|
+| ![Home](screenshots/01-home.png) | ![Login](screenshots/02-login.png) | ![Register](screenshots/03-register.png) |
+
+### Admin Role
+
+| Dashboard | Manage Users | Manage Classes |
+|-----------|--------------|----------------|
+| ![Admin Dashboard](screenshots/04-admin-dashboard.png) | ![Manage Users](screenshots/05-admin-users.png) | ![Manage Classes](screenshots/06-admin-classes.png) |
+
+### Trainer Role
+
+| Dashboard | My Classes | Training Records |
+|-----------|------------|-----------------|
+| ![Trainer Dashboard](screenshots/07-trainer-dashboard.png) | ![My Classes](screenshots/08-trainer-classes.png) | ![Training Records](screenshots/09-trainer-records.png) |
+
+### Member Role
+
+| Dashboard | Available Classes | My Bookings | Training History |
+|-----------|-------------------|-------------|-----------------|
+| ![Member Dashboard](screenshots/10-member-dashboard.png) | ![Available Classes](screenshots/11-member-classes.png) | ![My Bookings](screenshots/12-member-bookings.png) | ![Training History](screenshots/13-member-history.png) |
+
 ## Project Structure
 
 ```
