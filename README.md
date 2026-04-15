@@ -32,7 +32,7 @@ A web-based gym management system that helps manage members, trainers, and worko
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Skiffet/Smart-Gym-Management-System.git
 cd Smart-Gym-Management-System
 ```
 
